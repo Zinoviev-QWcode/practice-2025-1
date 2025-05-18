@@ -4,6 +4,7 @@
 , а также имеет некоторые данные (Например, транзакции). Хэш - цифровой отпечаток. Каждый блок не просто содержит хеш предшествующего ему блока, но и его 
 собственный хэш частично вычисляется из предыдущего хэша. При изменении данных предыдущего блока меняется хэш, что в свою очередь повляет на все хэши последующих блоков. 
 Это значит, что изменение любых данных в этом списке изменит подпись и розорвет цепочку.
+![](https://raw.githubusercontent.com/Zinoviev-QWcode/practice-2025-1/refs/heads/master/docs/img/tg0.png)
 ## Создание блокчейна
 ### При создании блокечйна потребуются:
 - Язык программирования Java
@@ -12,7 +13,9 @@
 
 ### Создание проекта
 Для этого открываем среду Intellij IDEA, нажимаем `File -> New -> Project`. В открывшемся окне выбираем проект типа Java. В поле Project SDK 
-выбираем openjdk-20. Нажимаем Next, тем самым переходя к следующему окну, в котором вписываем название нашего проекта и выбираем директорию, 
+выбираем openjdk-20. 
+![](https://github.com/Zinoviev-QWcode/practice-2025-1/blob/master/docs/img/tg1.png?raw=true) 
+Нажимаем Next, тем самым переходя к следующему окну, в котором вписываем название нашего проекта и выбираем директорию, 
 в которой будет храниться проект.
 ## Написание кода
 Для того, чтобы начать писать код, нужно создать первый класс. Назвоем его Block он будет составлять наш блокчейн. 
@@ -114,7 +117,10 @@ public static int difficulty = 3;
 - bounceycastle
 - GSON
 
-Для этого в Intellij IDEA переходим в `File -> Project Structure -> Libraries`. В открытом окне нажимаем на плюс, и из развернутого списка выбираем `From Maven`. Затем в поле поиска вводим название нужной нам зависимости и устанавливаем ее (***Для корректной работы требуется подключение к интернету***).
+Для этого в Intellij IDEA переходим в `File -> Project Structure -> Libraries`. В открытом окне нажимаем на плюс, и из развернутого списка выбираем `From Maven`. 
+![](https://github.com/Zinoviev-QWcode/practice-2025-1/blob/master/docs/img/tg2.png?raw=true)
+Затем в поле поиска вводим название нужной нам зависимости и устанавливаем ее (***Для корректной работы требуется подключение к интернету***).
+![](https://github.com/Zinoviev-QWcode/practice-2025-1/blob/master/docs/img/tg3.png?raw=true)
 
 ## Подготовка кошелька
 В криптовалютах право собственности на монеты передается в блокчейне в виде транзакций. Участники имеют адрес, на который и с которого можно отправлять средства.
@@ -461,6 +467,7 @@ public class TokenContract extends SmartContract {
         System.out.println("WalletA: " + walletA.getBalance());
         System.out.println("WalletB: " + walletB.getBalance());
 ```
+![](https://github.com/Zinoviev-QWcode/practice-2025-1/blob/master/docs/img/tg4.png?raw=true)
 - Тестирование PoS
 ```java
         System.out.println("\n=== Proof of Stake ===");
@@ -479,6 +486,7 @@ public class TokenContract extends SmartContract {
         addBlock(posBlock);
         System.out.println("PoS-block has been created by validator! Hash: " + posBlock.hash);
 ```
+![](https://github.com/Zinoviev-QWcode/practice-2025-1/blob/master/docs/img/tg5.png?raw=true)
 - Тестирование DPoS
 ```java
         System.out.println("\n=== Delegated Proof of Stake ===");
@@ -506,6 +514,7 @@ public class TokenContract extends SmartContract {
         addBlock(dposBlock);
         System.out.println("DPoS-block has been created by delegate! hash: " + dposBlock.hash);
 ```
+![](https://github.com/Zinoviev-QWcode/practice-2025-1/blob/master/docs/img/tg6.png?raw=true)
 - Smart-контракты
 ```java
         System.out.println("\n=== Token ERC-20 ===");
@@ -522,6 +531,6 @@ public class TokenContract extends SmartContract {
         System.out.println("WalletA: " + token.balanceOf(walletA.publicKey));
         System.out.println("WalletB: " + token.balanceOf(walletB.publicKey));
 ```
-
+![](https://github.com/Zinoviev-QWcode/practice-2025-1/blob/master/docs/img/tg7.png?raw=true)
 После того как весь этот код был написан, можно запустить программу, нажав на зеленый треугольник. В консоли отобразится результат выполнения кода. 
 В данном техническом руководстве расписаны основные этапы выполнения работы с заострением внимания на важных деталях кода. С более подробным кодом по данной работе можно ознакомиться в текущем репозитории в директории `practice2025-1/src/...`
